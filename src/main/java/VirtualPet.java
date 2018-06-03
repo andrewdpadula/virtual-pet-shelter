@@ -5,7 +5,7 @@ public class VirtualPet {
 	private int hunger;
 	private int thirst;
 	private int boredom;
-	private int amount;
+	private int amount = 12;
 
 	public VirtualPet(String petName, String description, int hunger, int thirst, int boredom) {
 		super();
@@ -15,6 +15,7 @@ public class VirtualPet {
 		this.thirst = thirst;
 		this.boredom = boredom;
 	}
+
 	public VirtualPet(String petName, String description) {
 	}
 
@@ -57,25 +58,37 @@ public class VirtualPet {
 	public int getBoredom() {
 		return boredom;
 	}
-	
+
 	public int feedPet() {
 		hunger -= amount;
 		return hunger;
 	}
+
 	public int waterPet() {
 		thirst -= amount;
 		return thirst;
 	}
+
 	public int playWithPet() {
-		boredom -= amount;
+		boredom -= (amount * 1.5);
 		return boredom;
 	}
+
 	public void singleTick() {
-		hunger += 5;
-		thirst += 5;
-		boredom += 5;
+		hunger += 2;
+		thirst += 2;
+		boredom += 2;
 	}
-	
-	
+
+	public void getStatus() {
+
+		System.out.println("  " + petName + ", " + description + ".\n    hunger: " + hunger + " | thirst: " + thirst
+				+ " | boredom: " + boredom);
+
+	}
+
+	public void summaryPet() {
+		System.out.println("  " + petName + ", " + description + ".");
+	}
 
 }

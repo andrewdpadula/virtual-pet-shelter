@@ -18,8 +18,8 @@ public class VirtualPetShelter {
 		pets.put(pet.getPetName(), pet);
 	}
 
-	public void adoptPet(VirtualPet pet) {
-		pets.remove(pet.getPetName(), pet);
+	public void adoptPet(String petName) {
+		pets.remove(petName);
 	}
 
 	public void feedAllPets() {
@@ -39,11 +39,24 @@ public class VirtualPetShelter {
 	public void playWithOnePet(String petName) {
 		getAPet(petName).playWithPet();
 	}
-	
+
 	public void tickAllPets() {
 		for (VirtualPet pet : pets.values()) {
 			pet.singleTick();
 		}
 	}
-	
+
+	public void displayStatus() {
+		for (VirtualPet pet : pets.values()) {
+			pet.getStatus();
+		}
+	}
+
+	public void displaySummaries() {
+		for (VirtualPet pet : pets.values()) {
+			pet.summaryPet();
+		}
+
+	}
+
 }
